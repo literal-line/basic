@@ -42,7 +42,8 @@ var basic = (function() {
 
         switch(inputType) {
             case 'any':
-                input = code.match(/(?<=print).+/);
+                var regex = new RegExp('(?<=' + jsCmd + ').+');
+                input = code.match(regex);
                 input = input === null ? '' : input[0];
                 break;
             case 'none':
