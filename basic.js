@@ -38,9 +38,9 @@ var basic = (function() {
         basicCmd = code.match(/([^\W])+/)[0]; // get basic command (all characters before a non-word character)
         regex = new RegExp('(?<=' + basicCmd + ').+');
         input = code.match(regex); // get input
-        inputType = basicCmds[basicCmd][1]; // get input type from command
         
         basicCmd = basicCmd.toUpperCase(); // make command uppercase
+        inputType = basicCmds[basicCmd][1]; // get input type from command
         jsCmd = basicCmds[basicCmd][0]; // get js-equivalent command
 
         switch(inputType) { // determine input
