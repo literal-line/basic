@@ -66,7 +66,7 @@ var basic = (function() {
     });
 
 
-    basicConsole.value = 'Basic Language Test v1.0\n\nCommands:\nCLS\nPRINT\n\nyup that\'s it bye!';
+    basicConsole.value = 'Basic Language Test v1.0\n\nCommands:\nCLS\nPRINT\n\nyup that\'s it bye!\n';
 
 
     return {
