@@ -17,16 +17,16 @@ var basic = (function() {
 
     var basicCmds = { // commands in basic format
         // example: ['js command counterpart', 'input types allowed']
-        cls: ['cls', 'none'],
-        print: ['print', 'any']
+        CLS: ['CLS', 'none'],
+        PRINT: ['PRINT', 'any']
     };
 
     var jsCmds = { // js code for commands
-        cls: function() {
+        CLS: function() {
             basicConsole.value = '';
         },
 
-        print: function(data) {
+        PRINT: function(data) {
             data = data === undefined ? '' : data;
             consoleAppendText(data);
         }
@@ -36,6 +36,7 @@ var basic = (function() {
         var basicCmd, jsCmd, inputType, input;
 
         basicCmd = code.match(/([^\W])+/)[0]; // get basic command (all characters before a non-word character)
+        basicCmd = basicCmd.toUpperCase();
         inputType = basicCmds[basicCmd][1];
         jsCmd = basicCmds[basicCmd][0];
 
