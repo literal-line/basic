@@ -11,8 +11,10 @@ var basic = (function() {
     var basicInput = document.getElementById('input');
     var runButton = document.getElementById('run');
 
+
     var consoleAppendText = function(text) {
         basicConsole.value += text + '\n';
+        basicConsole.scrollTop = basicConsole.scrollHeight;
     };
 
     var basicCmds = { // commands in basic format
@@ -63,9 +65,20 @@ var basic = (function() {
         }
     };
 
+    var submitInput = function() {
+        runButton.blur();
+        run(basicInput.value);
+    };
+
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            submitInput();
+        }
+    });
 
     runButton.addEventListener('click', function(e) {
-        run(basicInput.value);
+        submitInput();
     });
 
 
