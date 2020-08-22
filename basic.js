@@ -33,17 +33,18 @@ var basic = (function() {
     };
 
     var run = function(code) { // basic to js
-        var basicCmd, jsCmd, inputType, input;
+        var basicCmd, jsCmd, inputType, input, regex;
 
         basicCmd = code.match(/([^\W])+/)[0]; // get basic command (all characters before a non-word character)
-        basicCmd = basicCmd.toUpperCase();
-        inputType = basicCmds[basicCmd][1];
-        jsCmd = basicCmds[basicCmd][0];
+        regex = new RegExp('(?<=' + basicCmd + ').+');
+        input = code.match(regex); // get input
+        inputType = basicCmds[basicCmd][1]; // get input type from command
+        
+        basicCmd = basicCmd.toUpperCase(); // make command uppercase
+        jsCmd = basicCmds[basicCmd][0]; // get js-equivalent command
 
-        switch(inputType) {
+        switch(inputType) { // determine input
             case 'any':
-                var regex = new RegExp('(?<=' + jsCmd + ').+');
-                input = code.match(regex);
                 input = input === null ? '' : input[0];
                 break;
             case 'none':
