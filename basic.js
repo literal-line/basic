@@ -1,4 +1,6 @@
-// Basic Language Test
+// Basic Language Test by Literal Line
+// Discord: Lɪᴛᴇʀᴀʟ#9801
+// This sucks... enjoy!
 
 
 
@@ -64,7 +66,7 @@ var basic = (function() {
     });
 
 
-    basicConsole.value = 'Basic Language Test v1.0';
+    basicConsole.value = 'Basic Language Test v1.0\n\nCommands:\nCLS\nPRINT\n\nyup that\'s it bye!';
 
 
     return {
